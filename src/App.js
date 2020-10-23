@@ -1,9 +1,11 @@
 import React from 'react';
-import ErrorExample from '../src/tutorial/1-useState/setup/1-error-example';
+import Setup from '../src/tutorial/1-useState/setup/2-useState-basics';
+import Final from '../src/tutorial/1-useState/final/2-useState-basics';
 function App() {
   return (
     <div className='container'>
-      <ErrorExample/>
+      <Setup/>
+      <Final/>
     </div>
   );
 }
