@@ -7,23 +7,15 @@ import React, { useState } from 'react';
 // dynamic object keys
 
 const ControlledInputs = () => {
-  const [firstName, setFirstName] = useState('');
-  const [email, setEmail] = useState('');
+  // const [firstName, setFirstName] = useState('');
+  // const [email, setEmail] = useState('');
+  const [person, setPerson] = useState({name: '', email: '', age: ''})
   const [people, setPeople] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (firstName && email) {
-      const person = { id: new Date().getTime().toString(), firstName, email };
-      console.log(person);
-      setPeople((people) => {
-        return [...people, person];
-      });
-      setFirstName('');
-      setEmail('');
-    } else {
-      console.log('empty values');
-    }
+    setPeople([...people, person])
+    console.log(people)
   };
   return (
     <>
@@ -35,18 +27,18 @@ const ControlledInputs = () => {
               type='text'
               id='firstName'
               name='firstName'
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              value={person.name}
+              onChange={(e) => setPerson({...person, name: e.target.value})}
             />
           </div>
           <div className='form-control'>
             <label htmlFor='email'>Email : </label>
             <input
-              type='email'
+              type='text'
               id='email'
               name='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={person.email}
+              onChange={(e) => setPerson({...person, email: e.target.value})}
             />
           </div>
           <button type='submit'>add person</button>
